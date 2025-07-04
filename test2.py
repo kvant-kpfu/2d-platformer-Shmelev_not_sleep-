@@ -45,7 +45,7 @@ def setup_score_display():
 setup_score_display()
 
 def spawnRebenok():
-    for i in range(random.randrange(1, 2)):
+    for i in range(random.randrange(10, 20)):
         reb = turtle.Turtle()
         reb.shape("square")
         reb.color("green")
