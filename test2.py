@@ -2,7 +2,9 @@
 import random
 import time
 import math
-
+import sys
+import os
+from tkinter import Tk, Label, Butto
 screen = turtle.Screen()
 shmelev = turtle.Turtle()
 screen.tracer(0)
