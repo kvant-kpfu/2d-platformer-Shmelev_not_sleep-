@@ -154,37 +154,13 @@ while not game_over:
         length = round(end - start,3)
         win.write(f"{length} СЕКУНД", align="center", font=("Times", 18, "normal"))
 
-        
-def main_window(): #функция созданий главного окна, здесь лежит весь код окна: кнопки, текст и т.д.
-    global window
-    window= Tk() #создание окна
-    window.title('Перезапуск') #заголовок окна
-    window.geometry('400x400') #размеры окна
-    lbl = Label(window, text='Игра закончилась,\n хотие ли продолжить?', font=('Arial Bold', 14))
-    lbl.grid(column=0, row=0)
-
-    # вызов функции clicked() при нажатии кнопки
-    btn1 = Button(window, text='да', command=clicked1)
-    btn2 = Button(window, text='нет', command=clicked2)
-
-    btn1.grid(column=0, row=1)
-    btn2.grid(column=1, row=1)
-    window.mainloop()  # бесконечный цикл окна, окно ждёт нажатий
-
-def clicked1(): #функция убивает главное окно, затем снова вызывает его и оно вновь появляется
-    time.sleep(10)
-    window.destroy()
-    main_window()
-    reset()
-
-def clicked2():
-    quit()
-
-if  __name__== '__main__': #первично вызываем главное окно при включении программы
-
-
-
-
+def restart_program():
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
+root = Tk()
+Label(root, text="Игра закончилась!").pack()
+Button(root, text="начать заново", command=restart_program).pack()
+root.mainloop()
 
 
 main_window()
