@@ -166,7 +166,7 @@ def restart_program():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 root = Tk()
-Label(root, text="Игра закончилась!").pack()
+Label(root, text="Игра закончилась!,игра закончилась начните заново").pack()
 Button(root, text="начать заново", command=restart_program).pack()
 root.mainloop()
 
