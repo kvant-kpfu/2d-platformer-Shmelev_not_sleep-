@@ -1,10 +1,10 @@
-﻿import turtle
+import turtle
 import random
 import time
 import math
 import sys
 import os
-from tkinter import Tk, Label, Butto
+from tkinter import Tk, Label, Button
 screen = turtle.Screen()
 shmelev = turtle.Turtle()
 screen.tracer(0)
@@ -23,6 +23,11 @@ pen.color("black")
 pen.penup()
 pen.hideturtle()
 pen.goto(330, 310)
+screen.setup(width = 1.0, height = 1.0)
+canvas = screen.getcanvas() #МЕНЯ ЗАСТАВИЛИ СДЕЛАТЬ КОММЕНТАРИЙ
+root = canvas.winfo_toplevel()#у меня скоро не останется места для коммментвриев
+
+root.overrideredirect(1)
 
 def setup_score_display():
     score_display = turtle.Turtle()
@@ -48,14 +53,14 @@ def spawnRebenok():
         reb.shapesize(stretch_wid = 0.5, stretch_len = 0.5)
         reb.dx = random.randrange(-20, 20)/75
         reb.dy = random.randrange(-20, 20)/75
-        reb.penup()
+        reb.penup()#,kjby
         x = random.randrange(-300, 300)
         y = random.randrange(-300, 300)
         reb.goto(x, y)
         deti.append(reb)
 spawnRebenok()
 count_step = 0
-
+    
 highlighting = turtle.Turtle()
 highlighting.ht()
 highlighting.penup()
@@ -119,6 +124,7 @@ def checker_stolknovenia(reb):
 
 game_over = False
 step_over = False
+
 while not game_over:
     egg = time.time()
     pen.clear()
@@ -164,10 +170,6 @@ Label(root, text="Игра закончилась!").pack()
 Button(root, text="начать заново", command=restart_program).pack()
 root.mainloop()
 
-
-main_window()
-
-    
 screen.update()
 
 screen.mainloop()
